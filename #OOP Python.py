@@ -49,13 +49,25 @@ class Librarian(User):
         self.assigned_section = assigned_section
 
     def add_book(self):
-        print(f"Jyalyn {self.name} addded a new book to the collection.")
+        print(f"Librarian{self.name} addded a new book to the collection.")
 
     def remove_book(self):
-        print(f"Jyalyn {self.name} removed a book from  the collection.")
+        print(f"Librarian{self.name} removed a book from  the collection.")
 
     def issue_book(self):
-        print(f"Jyalyn {self.name}issed  a book.")
+        print(f"Librarian{self.name}issed  a book.")
 
     def overdue_report(self):
-        print(f"Jyalyn{self.name}generate and overdue report")
+        print(f"Librarian{self.name}generate and overdue report")
+
+
+# Admin class (child of user)
+class Admin(User):
+    def __init__(self, name, user_id, password, email, admin_level):
+        super().__init__(name, user_id, password, email)
+
+    def manage_users(self):
+        print(f"Admin{self.name}is managing user")
+
+    def set_rules(self):
+        print(f"Admin{self.name} set the library rukles")
