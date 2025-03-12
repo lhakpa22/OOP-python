@@ -30,7 +30,13 @@ class Member(User):
         self.membership_type = membership_type
 
     def borrow_book(self):
-        print(f"{self.name} borrowed a book")
+        print(f"{self.name} borrowed a book.")
 
     def return_book(self):
-        print(f"{self.name}returned a book")
+        print(f"{self.name}returned a book.")
+
+    def reserve_book(self):
+        print(f"{self.name}reserved a book.")
+
+    def view_books(self):
+        print(f"{self.name} is viewing book.")
