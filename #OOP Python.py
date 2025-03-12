@@ -55,16 +55,16 @@ class Librarian(User):
         self.assigned_section = assigned_section
 
     def add_book(self):
-        print(f"Librarian{self.name} addded a new book to the collection.")
+        print(f"Librarian {self.name} addded a new book to the collection.")
 
     def remove_book(self):
-        print(f"Librarian{self.name} removed a book from  the collection.")
+        print(f"Librarian {self.name} removed a book from  the collection.")
 
     def issue_book(self):
-        print(f"Librarian{self.name}issed  a book.")
+        print(f"Librarian {self.name} issed  a book.")
 
     def overdue_report(self):
-        print(f"Librarian{self.name}generate and overdue report")
+        print(f"Librarian {self.name} generate and overdue report")
 
 
 # Admin class (child of user) (inheritance)
@@ -73,7 +73,7 @@ class Admin(User):
         super().__init__(name, user_id, password, email)
 
     def manage_users(self):
-        print(f"Admin{self.name}is managing user")
+        print(f"Admin {self.name} is managing user")
 
     def set_library_rules(self, rule_name, rule_value):
         self.library_rules[rule_name] = rule_value
@@ -147,3 +147,16 @@ print(f"Updated Password: {user1.get_password()}")
 member1 = Member("will", 765, "password456", "will@.com", "Premium")
 member1.login()
 member1.borrow_book()
+
+# Test Case 3: Testing the Librarian class (Add Book and Generate Report)
+librarian1 = Librarian("Suneel", 101, "password789", "suneel@.com", "Fiction Section")
+librarian1.add_book()
+librarian1.overdue_report()
+
+# Test Case 4: Testing the Admin class (Managing Users)
+admin1 = Admin("lhakpa", 553, "adminpass", "Lhakpa@.com", "Super Admin")
+admin1.manage_users()
+
+admin1.set_library_rules("Max Borrow Limit", "5 books")
+admin1.set_library_rules("Late Fee", "£3 per day")
+print("Library Rules:", admin1.library_rules)
