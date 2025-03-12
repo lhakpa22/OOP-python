@@ -71,6 +71,8 @@ class Librarian(User):
 class Admin(User):
     def __init__(self, name, user_id, password, email, admin_level):
         super().__init__(name, user_id, password, email)
+        self.admin_level = admin_level
+        self.library_rules = {}
 
     def manage_users(self):
         print(f"Admin {self.name} is managing user")
