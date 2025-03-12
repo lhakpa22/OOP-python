@@ -8,7 +8,7 @@ class User:
         self.email = email
 
     # getter for password
-    def get_passwors(self):
+    def get_password(self):
         return self.__password
 
     # setter for password
@@ -23,7 +23,7 @@ class User:
         print(f"{self.name} logged out.")
 
 
-# Member class (child of user)
+# Member class (child of user) (intertance)
 class Member(User):
     def __init__(self, name, user_id, password, email, membership_type):
         super().__init__(name, user_id, password, email)
@@ -48,7 +48,7 @@ class Member(User):
         print(f"{self.name} is viewing book.")
 
 
-# Librarian Class (Child of User)
+# Librarian Class (Child of User) (inheritance)
 class Librarian(User):
     def __init__(self, name, user_id, password, email, assigned_section):
         super().__init__(name, user_id, password, email)
@@ -67,7 +67,7 @@ class Librarian(User):
         print(f"Librarian{self.name}generate and overdue report")
 
 
-# Admin class (child of user)
+# Admin class (child of user) (inheritance)
 class Admin(User):
     def __init__(self, name, user_id, password, email, admin_level):
         super().__init__(name, user_id, password, email)
@@ -133,6 +133,18 @@ class Library:
                 print(book.title)
 
 
-# testing overriding
+# Test Case 1: Testing the User class (Login and Logout )
+print("Test Case 1: User Class")
 user1 = User("Amina", 225, "password123", "amina12@.com")
-member1 = Member("will", 543, "password456", "will54@.com", "Premium")
+user1.login()
+user1.log_out()
+
+# password update
+print(f"old Password: {user1.get_password()}")
+user1.set_password("newpassword456")
+print(f"Updated Password: {user1.get_password()}")
+
+
+# # testing overriding
+# user1 = User("Amina", 225, "password123", "amina12@.com")
+# member1 = Member("will", 543, "password456", "will54@.com", "Premium")
