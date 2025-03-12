@@ -29,6 +29,12 @@ class Member(User):
         super().__init__(name, user_id, password, email)
         self.membership_type = membership_type
 
+    # Overriding the login method
+    def login(self):
+        print(
+            f"{self.name} logged in as a Member with {self.membership_type} membership."
+        )
+
     def borrow_book(self):
         print(f"{self.name} borrowed a book.")
 
@@ -95,3 +101,38 @@ class Book:
 
     def check_status(self):
         return self.status
+
+
+# Library Class (Aggregation relation to book)
+class Library:
+    def __init__(self):
+        self.books = []  # List to store Book objects
+        self.users = []  # List to store User objects
+
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Book '{book.title}' added to the library.")
+
+    def search_book(self, title):
+        for book in self.books:
+            if book.title == title:
+                return book
+        print("Book not found.")
+        return None
+
+    def remove_book(self, title):
+        book = self.search_book(title)
+        if book:
+            self.books.remove(book)
+            print(f"Book '{title}' removed from the library.")
+
+    def list_overdue(self):
+        print("Listing overdue books...")
+        for book in self.books:
+            if book.check_status() == "Overdue":
+                print(book.title)
+
+
+# testing overriding
+user1 = User("Amina", 225, "password123", "amina12@.com")
+member1 = Member("will", 543, "password456", "will54@.com", "Premium")
