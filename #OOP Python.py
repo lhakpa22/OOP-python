@@ -69,5 +69,29 @@ class Admin(User):
     def manage_users(self):
         print(f"Admin{self.name}is managing user")
 
-    def set_rules(self):
-        print(f"Admin{self.name} set the library rukles")
+    def set_library_rules(self, rule_name, rule_value):
+        self.library_rules[rule_name] = rule_value
+        print(f"Library Rule Updated: {rule_name} = {rule_value}")
+
+
+# Book Class
+class Book:
+    def __init__(self, title, author, status="Available"):
+        self.title = title
+        self.author = author
+        self.status = status
+
+    def borrow_book(self):
+        self.status = "Borrowed"
+        print(f"The book '{self.title}' has been borrowed.")
+
+    def return_book(self):
+        self.status = "Available"
+        print(f"The book '{self.title}' has been returned.")
+
+    def reserve_book(self):
+        self.status = "Reserved"
+        print(f"The book '{self.title}' has been reserved.")
+
+    def check_status(self):
+        return self.status
