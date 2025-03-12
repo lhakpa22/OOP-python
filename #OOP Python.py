@@ -49,4 +49,13 @@ class Librarian(User):
         self.assigned_section = assigned_section
 
     def add_book(self):
-        print(f"{self.name} addded a new book to the collection")
+        print(f"Jyalyn {self.name} addded a new book to the collection.")
+
+    def remove_book(self):
+        print(f"Jyalyn {self.name} removed a book from  the collection.")
+
+    def issue_book(self):
+        print(f"Jyalyn {self.name}issed  a book.")
+
+    def overdue_report(self):
+        print(f"Jyalyn{self.name}generate and overdue report")
