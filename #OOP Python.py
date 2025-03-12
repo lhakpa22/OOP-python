@@ -134,7 +134,6 @@ class Library:
 
 
 # Test Case 1: Testing the User class (Login and Logout )
-print("Test Case 1: User Class")
 user1 = User("Amina", 225, "password123", "amina12@.com")
 user1.login()
 user1.log_out()
@@ -144,7 +143,7 @@ print(f"old Password: {user1.get_password()}")
 user1.set_password("newpassword456")
 print(f"Updated Password: {user1.get_password()}")
 
-
-# # testing overriding
-# user1 = User("Amina", 225, "password123", "amina12@.com")
-# member1 = Member("will", 543, "password456", "will54@.com", "Premium")
+# Test Case 2: Testing the Member class (Login with Membership and Borrow Book)
+member1 = Member("will", 765, "password456", "will@.com", "Premium")
+member1.login()
+member1.borrow_book()
