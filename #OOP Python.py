@@ -175,3 +175,11 @@ library = Library()
 library.add_book(book1)
 book2 = Book("Men Without Women", "Haruki Murakami")
 library.add_book(book2)
+
+# Search for a book
+searched_book = library.search_book("A Little Life")
+if searched_book:
+    print(f"Found Book: {searched_book.title}")
+
+# Remove a book
+library.remove_book("Men Without Women")
