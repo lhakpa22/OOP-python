@@ -21,3 +21,16 @@ class User:
 
     def log_out(self):
         print(f"{self.name} logged out.")
+
+
+# Member class (child of user)
+class Member(User):
+    def __init__(self, name, user_id, password, email, membership_type):
+        super().__init__(name, user_id, password, email)
+        self.membership_type = membership_type
+
+    def borrow_book(self):
+        print(f"{self.name} borrowed a book")
+
+    def return_book(self):
+        print(f"{self.name}returned a book")
