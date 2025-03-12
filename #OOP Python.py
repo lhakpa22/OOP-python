@@ -40,3 +40,13 @@ class Member(User):
 
     def view_books(self):
         print(f"{self.name} is viewing book.")
+
+
+# Librarian Class (Child of User)
+class Librarian(User):
+    def __init__(self, name, user_id, password, email, assigned_section):
+        super().__init__(name, user_id, password, email)
+        self.assigned_section = assigned_section
+
+    def add_book(self):
+        print(f"{self.name} addded a new book to the collection")
